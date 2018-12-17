@@ -1,0 +1,20 @@
+require: rubocop-rspec
+AllCops:
+  TargetRubyVersion: 2.5.3
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{rails,rake}'
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*.rb'
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/**/*.rb'
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/**/*.rb'
