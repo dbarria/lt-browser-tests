@@ -31,7 +31,7 @@ Capybara.register_driver :agent do |app|
 end
 
 Capybara.default_driver = :agent
-Capybara.app_host = 'http://pingpong.staging.letsta.lk'
+Capybara.app_host = ENV['BASE_ROOT']
 Capybara.default_max_wait_time = 15
 
 RSpec.configure do |config|
