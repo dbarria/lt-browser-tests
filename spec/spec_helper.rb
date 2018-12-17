@@ -19,10 +19,15 @@ session_paths = File.join(Dir.pwd, 'support', 'session_steps', '**', '*.rb')
 Dir.glob(session_paths).each { |file| require file }
 
 Capybara.register_driver :client do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
+  profile = Selenium::WebDriver::Chrome::Profile.new
+  profile['intl.accept_languages'] = 'es'
+  Capybara::Selenium::Driver.new(app, browser: :chrome, profile: profile)
 end
+
 Capybara.register_driver :agent do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
+  profile = Selenium::WebDriver::Chrome::Profile.new
+  profile['intl.accept_languages'] = 'en'
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
 Capybara.default_driver = :agent
